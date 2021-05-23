@@ -1,0 +1,21 @@
+.playground{
+  background-color: #61dafb;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 2px;
+  .row {
+    display: flex;
+    align-content: space-evenly;
+    .cell{
+      content: '';
+      background-color: gray;
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+      margin: 2px;
+    }
+  }
+}
+
+
+
