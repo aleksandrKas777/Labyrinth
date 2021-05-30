@@ -13,6 +13,10 @@
       width: 100px;
       border-radius: 5px;
       margin: 2px;
+      .cellImg{
+        max-width: 100%;
+        height: auto;
+      }
     }
   }
 }
