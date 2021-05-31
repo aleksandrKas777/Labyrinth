@@ -2,31 +2,47 @@ import React, {useEffect} from 'react';
 import './index.scss';
 import start from '../../images/start-button.png';
 import {useSelector} from 'react-redux';
-import {setSizeDispatcher, setStartCellDispatcher} from '../../redux/dispatchers/dispatcher';
+import {
+    setCellDispatcher,
+    setSizeDispatcher,
+    setStartPositionDispatcher,
+    setPositionMatrixDispatcher
+} from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
 
 export const Playground = () => {
-    const {size, startCell} = useSelector((state: RootState) => state);
+    const {size, startPosition} = useSelector((state: RootState) => state);
 
 
-
-    useEffect(()=>{
+    useEffect(() => {
         setSizeDispatcher(3);
+
     }, [])
 
 
+    let cells: number[] = [];
+    for (let i = 1; i < size + 1; i++) {
+        for (let j = 0; j < size; j++) {
+            const startPositionMatrix = i * 10 + j
+            cells.push(startPositionMatrix);
+        }
+
+    }
+
+
     const startGame = () => {
-        const startPosition = Math.floor(Math.random() * (size * size));
-        setStartCellDispatcher(startPosition);
+        const position = Math.floor(Math.random() * (size * size));
+        let counter = 0;
+        for (let i = 0; i < cells.length; i++) {
+            if (counter === position) {
+                setStartPositionDispatcher(cells[i]);
+                setPositionMatrixDispatcher(cells[i]);
+            }
+            counter++;
+        }
+        setCellDispatcher(cells);
     };
 
-
-
-
-    let cells: number[] = [];
-    for (let i = 0; i < size * size; i++) {
-        cells.push(i)
-    }
     const stylePlayground = {
         width: 100 * size + 4 * size + 'px'
     }
@@ -34,12 +50,12 @@ export const Playground = () => {
         <>
             <button onClick={startGame}>начать игру</button>
             <div className={'playground'} style={stylePlayground}>
-                {cells.map((item, index) => {
-                    if (index === startCell) {
-                        return <button className='cell' key={index}><img className='cellImg' src={start}
-                                                                         alt='START'/></button>
+                {cells.map((item) => {
+                    if (item === startPosition) {
+                        return <button className='cell' key={item}><img className='cellImg' src={start}
+                                                                        alt='START'/></button>
                     }
-                    return <button className='cell' key={index}/>
+                    return <button className='cell' key={item}/>
                 })}
             </div>
         </>
