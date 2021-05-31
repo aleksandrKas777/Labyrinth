@@ -2,6 +2,7 @@ import {actions} from '../redusers/reducer';
 import {store} from '../store';
 
 const {dispatch} = store;
-const {optionSize} = actions;
+const {sizeReducer, startCellReducer} = actions;
 
-export const setOptionSizeDispatcher = (size: number) => dispatch(optionSize(size));
+export const setSizeDispatcher = (size: number) => dispatch(sizeReducer(size));
+export const setStartCellDispatcher = (startCell: number) => dispatch(startCellReducer(startCell));

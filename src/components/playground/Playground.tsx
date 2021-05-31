@@ -2,47 +2,46 @@ import React, {useEffect} from 'react';
 import './index.scss';
 import start from '../../images/start-button.png';
 import {useSelector} from 'react-redux';
-import {setOptionSizeDispatcher} from '../../redux/dispatchers/dispatcher';
+import {setSizeDispatcher, setStartCellDispatcher} from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
 
 export const Playground = () => {
+    const {size, startCell} = useSelector((state: RootState) => state);
 
-    const {size} = useSelector((state:RootState) => state);
 
-    useEffect(()=> {
-        setOptionSizeDispatcher(3);
+
+    useEffect(()=>{
+        setSizeDispatcher(3);
     }, [])
 
-    const Cell = () => {
-        let startPositionX = Math.floor(Math.random() * size);
-        let startPositionY = Math.floor(Math.random() * size);
-        let counter = 0;
-        let cells: any[] = [];
-        for (let i = 0; i < size; i++) {
-            let row = [];
-            for (let j = 0; j < size; j++) {
-                if (j === startPositionX && i === startPositionY) {
-                    row.push(
-                        <button className='cell' key={counter}>
-                            <img className='cellImg' src={start} alt='START'/>
-                        </button>);
-                } else {
-                    row.push(<button className='cell' key={counter}/>);
-                }
-                counter++;
-            }
-            cells.push(<div className='row' key={'row' + i}> {row} </div>);
 
-        }
-        return cells;
+    const startGame = () => {
+        const startPosition = Math.floor(Math.random() * (size * size));
+        setStartCellDispatcher(startPosition);
+    };
+
+
+
+
+    let cells: number[] = [];
+    for (let i = 0; i < size * size; i++) {
+        cells.push(i)
     }
-
-
+    const stylePlayground = {
+        width: 100 * size + 4 * size + 'px'
+    }
     return (
-        <div className={'playground'}>
-
-            {Cell()}
-
-        </div>
+        <>
+            <button onClick={startGame}>начать игру</button>
+            <div className={'playground'} style={stylePlayground}>
+                {cells.map((item, index) => {
+                    if (index === startCell) {
+                        return <button className='cell' key={index}><img className='cellImg' src={start}
+                                                                         alt='START'/></button>
+                    }
+                    return <button className='cell' key={index}/>
+                })}
+            </div>
+        </>
     )
 }

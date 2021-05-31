@@ -1,15 +1,19 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 const initialState = {
-    size: 0
+    size: 0,
+    startCell: 100,
 };
 
 const sliceConfig = {
     name: 'labyrinthReducer',
     initialState: initialState,
     reducers: {
-        optionSize: (state: any, action: PayloadAction<number>)=> {
+        sizeReducer: (state: any, action: PayloadAction<number>)=> {
             state.size = action.payload;
+        },
+        startCellReducer: (state: any, action:PayloadAction<number>)=> {
+            state.startCell = action.payload
         }
     }
 };
