@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './index.scss';
 import start from '../../images/start-button.png';
 import {useSelector} from 'react-redux';
@@ -6,13 +6,15 @@ import {
     setCellDispatcher,
     setSizeDispatcher,
     setStartPositionDispatcher,
-    setPositionMatrixDispatcher
+    setPositionMatrixDispatcher,
+    setBtnDisableDispatcher, setArrowDispatcher,
 } from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
 
-export const Playground = () => {
-    const {size, startPosition} = useSelector((state: RootState) => state);
 
+export const Playground = () => {
+    const {size, startPosition, positionMatrix, btnDisable} = useSelector((state: RootState) => state);
+    const [btnText, setBtnText] = useState('новая игра');
 
     useEffect(() => {
         setSizeDispatcher(3);
@@ -28,9 +30,19 @@ export const Playground = () => {
         }
 
     }
+    const resultGame = (event: any) => {
+        if (positionMatrix + '' === event.target.id) {
+            console.log('win')
+        } else {
+            console.log('no')
+        }
+    }
 
 
     const startGame = () => {
+        setArrowDispatcher('text');
+        setBtnText('рестарт');
+        setBtnDisableDispatcher(false);
         const position = Math.floor(Math.random() * (size * size));
         let counter = 0;
         for (let i = 0; i < cells.length; i++) {
@@ -41,6 +53,7 @@ export const Playground = () => {
             counter++;
         }
         setCellDispatcher(cells);
+
     };
 
     const stylePlayground = {
@@ -48,14 +61,16 @@ export const Playground = () => {
     }
     return (
         <>
-            <button onClick={startGame}>начать игру</button>
+            <button onClick={startGame}>{btnText}</button>
             <div className={'playground'} style={stylePlayground}>
                 {cells.map((item) => {
                     if (item === startPosition) {
-                        return <button className='cell' key={item}><img className='cellImg' src={start}
-                                                                        alt='START'/></button>
+                        return <button id={item + ''} disabled={btnDisable} className='cell' onClick={resultGame}
+                                       key={item}><img className='cellImg' src={start}
+                                                       alt='START'/></button>
                     }
-                    return <button className='cell' key={item}/>
+                    return <button id={item + ''} disabled={btnDisable} onClick={resultGame} className='cell'
+                                   key={item}/>
                 })}
             </div>
         </>

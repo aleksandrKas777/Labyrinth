@@ -5,7 +5,22 @@
     width: 100px;
     height: 100px;
     background-color: #61dafb;
+    transition-property: opacity;
+    transition-duration: 2s;
+    //animation: show-arrow 2s forwards;
   }
 }
+@keyframes show-arrow {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
 
 

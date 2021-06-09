@@ -1,10 +1,25 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-const initialState = {
+interface InitialState {
+    size: number,
+    startPosition: number,
+    positionMatrix: number,
+    cells: number[],
+    moveArr: string[],
+    arrow: string,
+    btnDisable: boolean,
+    timeoutNull: boolean
+}
+
+const initialState: InitialState = {
     size: 0,
-    startPosition: 100,
-    startPositionMatrix: 0,
-    cells: []
+    startPosition: 0,
+    positionMatrix: 0,
+    cells: [],
+    moveArr: ['text'],
+    arrow: 'text',
+    btnDisable: true,
+    timeoutNull: true
 };
 
 const sliceConfig = {
@@ -20,8 +35,20 @@ const sliceConfig = {
         cellsReducer: (state:any, action: PayloadAction<Array<number>>) => {
             state.cells = action.payload;
         },
-        startPositionMatrixReducer: (state:any, action: PayloadAction<number>) => {
-            state.startPositionMatrix = action.payload;
+        positionMatrixReducer: (state:any, action: PayloadAction<number>) => {
+            state.positionMatrix = action.payload;
+        },
+        moveArrReducer: (state: any, action:PayloadAction<Array<string>>) => {
+            state.moveArr = action.payload;
+        },
+        arrowReducer: (state: any, action:PayloadAction<string>) => {
+            state.arrow = action.payload;
+        },
+        btnDisableReducer: (state: any, action:PayloadAction<boolean>) => {
+            state.btnDisable = action.payload;
+        },
+        timeoutNullReducer: (state: any, action:PayloadAction<boolean>) => {
+            state.timeoutNull = action.payload;
         }
     }
 };
