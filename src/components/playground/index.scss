@@ -14,9 +14,19 @@
     .cellImg {
       max-width: 100%;
       height: auto;
+      animation: show-btnImg 1s forwards;
     }
   }
 
+}
+
+@keyframes show-btnImg {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 

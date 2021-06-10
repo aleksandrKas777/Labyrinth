@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import './index.scss';
-import start from '../../images/start-button.png';
 import {useSelector} from 'react-redux';
 import {
     setCellDispatcher,
     setSizeDispatcher,
     setStartPositionDispatcher,
     setPositionMatrixDispatcher,
-    setBtnDisableDispatcher, setArrowDispatcher,
+    setBtnDisableDispatcher, setArrowDispatcher, setResultDispatcher, setUserCellDispatcher,
 } from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
+import {Cell} from './cell/Cell';
 
 
-export const Playground = () => {
-    const {size, startPosition, positionMatrix, btnDisable} = useSelector((state: RootState) => state);
+export const Playground: React.FunctionComponent = () => {
+    const {size} = useSelector((state: RootState) => state);
     const [btnText, setBtnText] = useState('новая игра');
+
 
     useEffect(() => {
         setSizeDispatcher(3);
@@ -30,17 +31,12 @@ export const Playground = () => {
         }
 
     }
-    const resultGame = (event: any) => {
-        if (positionMatrix + '' === event.target.id) {
-            console.log('win')
-        } else {
-            console.log('no')
-        }
-    }
 
 
     const startGame = () => {
+        setResultDispatcher('');
         setArrowDispatcher('text');
+        setUserCellDispatcher(0);
         setBtnText('рестарт');
         setBtnDisableDispatcher(false);
         const position = Math.floor(Math.random() * (size * size));
@@ -59,19 +55,12 @@ export const Playground = () => {
     const stylePlayground = {
         width: 100 * size + 4 * size + 'px'
     }
+
     return (
         <>
             <button onClick={startGame}>{btnText}</button>
             <div className={'playground'} style={stylePlayground}>
-                {cells.map((item) => {
-                    if (item === startPosition) {
-                        return <button id={item + ''} disabled={btnDisable} className='cell' onClick={resultGame}
-                                       key={item}><img className='cellImg' src={start}
-                                                       alt='START'/></button>
-                    }
-                    return <button id={item + ''} disabled={btnDisable} onClick={resultGame} className='cell'
-                                   key={item}/>
-                })}
+                {cells.map((item, index) => <Cell key={index + 100} item={item}/>)}
             </div>
         </>
     )

@@ -3,6 +3,9 @@ import arrowUp from '../../images/arrow-up.png';
 import arrowDown from '../../images/arrow-down.png';
 import arrowLeft from '../../images/arrow-left.png';
 import arrowRight from '../../images/arrow-right.png';
+import winner from '../../images/winnerHomer.png';
+import losing from '../../images/losingHomer.png';
+import homer from '../../images/meditateHomer.png'
 import './index.scss';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
@@ -13,19 +16,17 @@ import {
 } from '../../redux/dispatchers/dispatcher';
 
 
-export const stopTimeout = (timer: any) => {
-    clearTimeout(timer)
-}
 export const Track = () => {
-    const {cells, startPosition, moveArr, arrow} = useSelector((state: RootState) => state);
+    const {cells, startPosition, moveArr, arrow, result} = useSelector((state: RootState) => state);
     const countStep = 11;
 
-
+    // создаем массив ходов
     useEffect(() => {
         if (startPosition !== 0) {
             let positionMatrix = startPosition;
             const moveRoute: string[] = [];
             for (let i = 0; i < countStep; i++) {
+                // возможные ходы
                 const crossroadsArr: string[] = [];
 
                 if (cells.indexOf(positionMatrix + 10) !== -1 && moveRoute[moveRoute.length - 1] !== 'down') {
@@ -44,6 +45,8 @@ export const Track = () => {
                     crossroadsArr.push('left');
 
                 }
+
+                // делаем ход
                 const step = Math.floor(Math.random() * crossroadsArr.length);
                 moveRoute.push(crossroadsArr[step]);
 
@@ -58,18 +61,21 @@ export const Track = () => {
                 }
 
             }
+            moveRoute.push('homer');
             setMoveArrDispatcher(moveRoute);
             setPositionMatrixDispatcher(positionMatrix);
         }
 
     }, [cells, startPosition])
 
+    // проходим по массиву с ходами и устанавливаем направление стрелки
     useEffect(() => {
 
         let counter = 0;
         const timer = setInterval(() => {
-            if (countStep === counter + 1 || startPosition === 0) {
+            if (countStep === counter || startPosition === 0 || result !== '') {
                 clearInterval(timer);
+
             }
             setArrowDispatcher(moveArr[counter]);
             counter++
@@ -78,10 +84,10 @@ export const Track = () => {
 
         return () => clearInterval(timer);
 
-    }, [moveArr, startPosition])
+    }, [moveArr, result, startPosition])
 
 
-    let arrowImg:JSX.Element;
+    let arrowImg: JSX.Element;
     if (arrow === 'down') {
         arrowImg = <img src={arrowDown} className='arrow' alt='вниз'/>
     } else if (arrow === 'left') {
@@ -90,14 +96,21 @@ export const Track = () => {
         arrowImg = <img src={arrowRight} className='arrow' alt='вправо'/>
     } else if (arrow === 'up') {
         arrowImg = <img src={arrowUp} className='arrow' alt='вверх'/>
+    } else if (arrow === 'homer') {
+        arrowImg = <img src={homer} className='arrow homer' alt='вверх'/>
     } else {
         arrowImg = <div className='arrow'>здесь будет указано напрвление</div>
     }
 
+    let resultImg: JSX.Element;
+    resultImg = result === 'winner' ?
+        <img className='result' src={winner} alt='победа'/> :
+        <img className='result' src={losing} alt='победа'/>
+
 
     return (
         <div className='track'>
-            {arrowImg}
+            {result === '' ? arrowImg : resultImg}
         </div>
     )
 }

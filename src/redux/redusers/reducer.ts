@@ -8,7 +8,8 @@ interface InitialState {
     moveArr: string[],
     arrow: string,
     btnDisable: boolean,
-    timeoutNull: boolean
+    result: string,
+    userCell: number
 }
 
 const initialState: InitialState = {
@@ -19,36 +20,40 @@ const initialState: InitialState = {
     moveArr: ['text'],
     arrow: 'text',
     btnDisable: true,
-    timeoutNull: true
+    result: '',
+    userCell: 0
 };
 
 const sliceConfig = {
     name: 'labyrinthReducer',
     initialState: initialState,
     reducers: {
-        sizeReducer: (state: any, action: PayloadAction<number>)=> {
+        sizeReducer: (state: any, action: PayloadAction<number>) => {
             state.size = action.payload;
         },
         startPositionReducer: (state: any, action: PayloadAction<number>) => {
             state.startPosition = action.payload;
         },
-        cellsReducer: (state:any, action: PayloadAction<Array<number>>) => {
+        cellsReducer: (state: any, action: PayloadAction<Array<number>>) => {
             state.cells = action.payload;
         },
-        positionMatrixReducer: (state:any, action: PayloadAction<number>) => {
+        positionMatrixReducer: (state: any, action: PayloadAction<number>) => {
             state.positionMatrix = action.payload;
         },
-        moveArrReducer: (state: any, action:PayloadAction<Array<string>>) => {
+        moveArrReducer: (state: any, action: PayloadAction<Array<string>>) => {
             state.moveArr = action.payload;
         },
-        arrowReducer: (state: any, action:PayloadAction<string>) => {
+        arrowReducer: (state: any, action: PayloadAction<string>) => {
             state.arrow = action.payload;
         },
-        btnDisableReducer: (state: any, action:PayloadAction<boolean>) => {
+        btnDisableReducer: (state: any, action: PayloadAction<boolean>) => {
             state.btnDisable = action.payload;
         },
-        timeoutNullReducer: (state: any, action:PayloadAction<boolean>) => {
-            state.timeoutNull = action.payload;
+        resultReducer: (state: any, action: PayloadAction<string>) => {
+            state.result = action.payload;
+        },
+        userCellReducer: (state: any, action: PayloadAction<number>) => {
+            state.userCell = action.payload;
         }
     }
 };
