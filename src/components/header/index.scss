@@ -1,0 +1,33 @@
+.title{
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 40px;
+  height: 60px;
+}
+nav{
+  background-color: #069cc6;
+  color: aliceblue;
+  :first-child{
+    display: flex;
+  }
+  .li_margin{
+    margin-right: 20px;
+  }
+  .nav_ul{
+    display: flex;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    padding: 5px 10px;
+  }
+  li{
+    padding: 5px 10px;
+    border: 1px solid #61dafb;
+    border-radius: 10px;
+    &:hover{
+      background-color: #07b0df;
+    }
+  }
+}

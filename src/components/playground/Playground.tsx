@@ -14,11 +14,11 @@ import {Cell} from './cell/Cell';
 
 export const Playground: React.FunctionComponent = () => {
     const {size} = useSelector((state: RootState) => state);
-    const [btnText, setBtnText] = useState('новая игра');
+    const [btnText, setBtnText] = useState('начать игру');
 
 
     useEffect(() => {
-        setSizeDispatcher(3);
+        setSizeDispatcher(6);
 
     }, [])
 
@@ -37,7 +37,7 @@ export const Playground: React.FunctionComponent = () => {
         setResultDispatcher('');
         setArrowDispatcher('text');
         setUserCellDispatcher(0);
-        setBtnText('рестарт');
+        setBtnText('начать заново');
         setBtnDisableDispatcher(false);
         const position = Math.floor(Math.random() * (size * size));
         let counter = 0;
@@ -58,7 +58,7 @@ export const Playground: React.FunctionComponent = () => {
 
     return (
         <>
-            <button onClick={startGame}>{btnText}</button>
+            <div className='btnStart'><button onClick={startGame}>{btnText}</button></div>
             <div className={'playground'} style={stylePlayground}>
                 {cells.map((item, index) => <Cell key={index + 100} item={item}/>)}
             </div>

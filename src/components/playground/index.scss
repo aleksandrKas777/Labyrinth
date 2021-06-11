@@ -17,7 +17,22 @@
       animation: show-btnImg 1s forwards;
     }
   }
+}
+.btnStart{
+  display: flex;
+  justify-content: center;
 
+
+  button{
+    border-radius: 10px;
+    font-size: 30px;
+    border-color: #069cc6;
+    animation: show-btnImg 1s forwards;
+    background-color: #07b0df;
+    &:hover{
+      background-color: #069cc6;
+    }
+  }
 }
 
 @keyframes show-btnImg {
@@ -28,6 +43,7 @@
     opacity: 1;
   }
 }
+
 
 
 
