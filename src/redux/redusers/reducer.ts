@@ -9,7 +9,8 @@ interface InitialState {
     arrow: string,
     btnDisable: boolean,
     result: string,
-    userCell: number
+    userCell: number,
+    modalActive: string
 }
 
 const initialState: InitialState = {
@@ -21,7 +22,8 @@ const initialState: InitialState = {
     arrow: 'text',
     btnDisable: true,
     result: '',
-    userCell: 0
+    userCell: 0,
+    modalActive: ''
 };
 
 const sliceConfig = {
@@ -54,6 +56,9 @@ const sliceConfig = {
         },
         userCellReducer: (state: any, action: PayloadAction<number>) => {
             state.userCell = action.payload;
+        },
+        modalActiveReducer: (state: any, action: PayloadAction<string>) => {
+            state.modalActive = action.payload;
         }
     }
 };

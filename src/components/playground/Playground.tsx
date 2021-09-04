@@ -6,7 +6,7 @@ import {
     setSizeDispatcher,
     setStartPositionDispatcher,
     setPositionMatrixDispatcher,
-    setBtnDisableDispatcher, setArrowDispatcher, setResultDispatcher, setUserCellDispatcher,
+    setBtnDisableDispatcher, setArrowDispatcher, setResultDispatcher, setUserCellDispatcher
 } from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
 import {Cell} from './cell/Cell';

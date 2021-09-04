@@ -11,7 +11,8 @@ const {
     arrowReducer,
     btnDisableReducer,
     resultReducer,
-    userCellReducer
+    userCellReducer,
+    modalActiveReducer
 } = actions;
 
 export const setSizeDispatcher = (size: number) => dispatch(sizeReducer(size));
@@ -23,3 +24,4 @@ export const setArrowDispatcher = (arrow: string) => dispatch(arrowReducer(arrow
 export const setBtnDisableDispatcher = (btnDisable: boolean) => dispatch(btnDisableReducer(btnDisable));
 export const setResultDispatcher = (result: string) => dispatch(resultReducer(result));
 export const setUserCellDispatcher = (userCell: number) => dispatch(userCellReducer(userCell));
+export const setModalActiveDispatcher = (modalActive: string) => dispatch(modalActiveReducer(modalActive));
