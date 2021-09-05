@@ -10,9 +10,9 @@ import './index.scss';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
 import {
-    setMoveArrDispatcher,
-    setPositionMatrixDispatcher,
-    setArrowDispatcher
+    moveArrDispatcher,
+    positionMatrixDispatcher,
+    arrowDispatcher
 } from '../../redux/dispatchers/dispatcher';
 
 
@@ -62,8 +62,8 @@ export const Track = () => {
 
             }
             moveRoute.push('homer');
-            setMoveArrDispatcher(moveRoute);
-            setPositionMatrixDispatcher(positionMatrix);
+            moveArrDispatcher(moveRoute);
+            positionMatrixDispatcher(positionMatrix);
         }
 
     }, [cells, startPosition])
@@ -77,7 +77,7 @@ export const Track = () => {
                 clearInterval(timer);
 
             }
-            setArrowDispatcher(moveArr[counter]);
+            arrowDispatcher(moveArr[counter]);
             counter++
 
         }, 1500);

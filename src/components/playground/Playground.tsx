@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import './index.scss';
 import {useSelector} from 'react-redux';
 import {
-    setCellDispatcher,
-    setSizeDispatcher,
-    setStartPositionDispatcher,
-    setPositionMatrixDispatcher,
-    setBtnDisableDispatcher, setArrowDispatcher, setResultDispatcher, setUserCellDispatcher
+    cellDispatcher,
+    sizeDispatcher,
+    startPositionDispatcher,
+    positionMatrixDispatcher,
+    btnDisableDispatcher, arrowDispatcher, resultDispatcher, userCellDispatcher
 } from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
 import {Cell} from './cell/Cell';
@@ -18,7 +18,7 @@ export const Playground: React.FunctionComponent = () => {
 
 
     useEffect(() => {
-        setSizeDispatcher(6);
+        sizeDispatcher(6);
 
     }, [])
 
@@ -34,21 +34,21 @@ export const Playground: React.FunctionComponent = () => {
 
 
     const startGame = () => {
-        setResultDispatcher('');
-        setArrowDispatcher('text');
-        setUserCellDispatcher(0);
+        resultDispatcher('');
+        arrowDispatcher('text');
+        userCellDispatcher(0);
         setBtnText('начать заново');
-        setBtnDisableDispatcher(false);
+        btnDisableDispatcher(false);
         const position = Math.floor(Math.random() * (size * size));
         let counter = 0;
         for (let i = 0; i < cells.length; i++) {
             if (counter === position) {
-                setStartPositionDispatcher(cells[i]);
-                setPositionMatrixDispatcher(cells[i]);
+                startPositionDispatcher(cells[i]);
+                positionMatrixDispatcher(cells[i]);
             }
             counter++;
         }
-        setCellDispatcher(cells);
+        cellDispatcher(cells);
 
     };
 

@@ -10,7 +10,8 @@ interface InitialState {
     btnDisable: boolean,
     result: string,
     userCell: number,
-    modalActive: string
+    modalActive: string,
+    statisticGame: string[]
 }
 
 const initialState: InitialState = {
@@ -23,7 +24,8 @@ const initialState: InitialState = {
     btnDisable: true,
     result: '',
     userCell: 0,
-    modalActive: ''
+    modalActive: '',
+    statisticGame: []
 };
 
 const sliceConfig = {
@@ -59,6 +61,9 @@ const sliceConfig = {
         },
         modalActiveReducer: (state: any, action: PayloadAction<string>) => {
             state.modalActive = action.payload;
+        },
+        statisticGameReducer: (state: any, action: PayloadAction<Array<string>>) => {
+            state.statisticGame = action.payload;
         }
     }
 };

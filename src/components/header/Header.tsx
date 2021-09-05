@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import {setModalActiveDispatcher} from '../../redux/dispatchers/dispatcher';
+import {modalActiveDispatcher} from '../../redux/dispatchers/dispatcher';
 
 export const Header = () => {
 
@@ -9,10 +9,10 @@ export const Header = () => {
             <nav>
                 <ul className="nav_ul">
                     <li className="nav_item" onClick={() => {
-                        setModalActiveDispatcher('statistic')
+                        modalActiveDispatcher('statistic')
                     }}>Статистика
                     </li>
-                    <li className="nav_item" onClick={() => { setModalActiveDispatcher('settings')}}>Настройки игры</li>
+                    <li className="nav_item" onClick={() => { modalActiveDispatcher('settings')}}>Настройки игры</li>
                 </ul>
             </nav>
 

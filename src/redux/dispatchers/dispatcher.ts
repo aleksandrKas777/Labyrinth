@@ -12,16 +12,18 @@ const {
     btnDisableReducer,
     resultReducer,
     userCellReducer,
-    modalActiveReducer
+    modalActiveReducer,
+    statisticGameReducer
 } = actions;
 
-export const setSizeDispatcher = (size: number) => dispatch(sizeReducer(size));
-export const setStartPositionDispatcher = (startPosition: number) => dispatch(startPositionReducer(startPosition));
-export const setCellDispatcher = (sells: Array<number>) => dispatch(cellsReducer(sells));
-export const setPositionMatrixDispatcher = (positionMatrix: number) => dispatch(positionMatrixReducer(positionMatrix));
-export const setMoveArrDispatcher = (moveRoute: Array<string>) => dispatch(moveArrReducer(moveRoute));
-export const setArrowDispatcher = (arrow: string) => dispatch(arrowReducer(arrow));
-export const setBtnDisableDispatcher = (btnDisable: boolean) => dispatch(btnDisableReducer(btnDisable));
-export const setResultDispatcher = (result: string) => dispatch(resultReducer(result));
-export const setUserCellDispatcher = (userCell: number) => dispatch(userCellReducer(userCell));
-export const setModalActiveDispatcher = (modalActive: string) => dispatch(modalActiveReducer(modalActive));
+export const sizeDispatcher = (size: number) => dispatch(sizeReducer(size));
+export const startPositionDispatcher = (startPosition: number) => dispatch(startPositionReducer(startPosition));
+export const cellDispatcher = (sells: Array<number>) => dispatch(cellsReducer(sells));
+export const positionMatrixDispatcher = (positionMatrix: number) => dispatch(positionMatrixReducer(positionMatrix));
+export const moveArrDispatcher = (moveRoute: Array<string>) => dispatch(moveArrReducer(moveRoute));
+export const arrowDispatcher = (arrow: string) => dispatch(arrowReducer(arrow));
+export const btnDisableDispatcher = (btnDisable: boolean) => dispatch(btnDisableReducer(btnDisable));
+export const resultDispatcher = (result: string) => dispatch(resultReducer(result));
+export const userCellDispatcher = (userCell: number) => dispatch(userCellReducer(userCell));
+export const modalActiveDispatcher = (modalActive: string) => dispatch(modalActiveReducer(modalActive));
+export const statisticGameDispatcher = (statistic: Array<string>) => dispatch(statisticGameReducer(statistic));
