@@ -10,19 +10,17 @@
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  //transition: 0.2s;
-
 
   .modal_content {
     padding: 20px;
     border-radius: 12px;
     background-color: white;
     border: 3px solid black;
-    p{
+    h2{
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
-      font-size: x-large;
+      font-size: xx-large;
     }
     li{
       margin-bottom: 5px;
@@ -36,4 +34,31 @@
 .activeModal{
   opacity: 1;
   pointer-events: auto;
+}
+.select{
+  display: flex;
+  margin: 20px;
+  p{
+    margin-right: 10px;
+    font-size: x-large;
+  }
+}
+select{
+  font-size: larger;
+  height: max-content;
+}
+#deleteStatistic{
+  display: flex;
+  justify-content: end;
+  cursor: default;
+  color: #069cc6;
+  margin-bottom: 10px;
+  &:hover{
+    color: #07b0df;
+    text-decoration: underline #07b0df;
+  }
+}
+.btnSettings{
+  display: flex;
+  justify-content: space-evenly;
 }
