@@ -39,10 +39,13 @@ export const Cell = ({item}: CellProps) => {
         const year = String(today.getFullYear());
         const hour = String(today.getHours());
         const minutes = String(today.getMinutes()).padStart(2, '0');
-        const dateGame = day + '.' + month + '.' + year + ' ' + hour + ':' + minutes + '  ' + (resultGame === 'winner' ? 'Победа' : 'Поражение');
+        const dateGame = day + '.' + month + '.' + year + ' ' + hour + ':' + minutes + ' ' + (resultGame === 'winner' ? 'Победа' : 'Поражение');
 
         // запись статистики в состояние
         const resultsAllGames = statisticGame.slice();
+        if (resultsAllGames.length > 20) {
+            resultsAllGames.pop();
+        }
         resultsAllGames.unshift(dateGame);
         statisticGameDispatcher(resultsAllGames);
     }
