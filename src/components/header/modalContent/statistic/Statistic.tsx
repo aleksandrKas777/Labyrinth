@@ -1,7 +1,10 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../../../redux/store';
-import {modalActiveDispatcher, statisticGameDispatcher} from '../../../../redux/dispatchers/dispatcher';
+import {
+    modalActiveDispatcher,
+    statisticGameDispatcher
+} from '../../../../redux/dispatchers/dispatcher';
 
 export const Statistic: React.FunctionComponent = () => {
     const {statisticGame} = useSelector((state: RootState) => state);

@@ -13,7 +13,8 @@ const {
     resultReducer,
     userCellReducer,
     modalActiveReducer,
-    statisticGameReducer
+    statisticGameReducer,
+    speedGameReducer
 } = actions;
 
 export const sizeDispatcher = (size: number) => dispatch(sizeReducer(size));
@@ -27,3 +28,4 @@ export const resultDispatcher = (result: string) => dispatch(resultReducer(resul
 export const userCellDispatcher = (userCell: number) => dispatch(userCellReducer(userCell));
 export const modalActiveDispatcher = (modalActive: string) => dispatch(modalActiveReducer(modalActive));
 export const statisticGameDispatcher = (statistic: Array<string>) => dispatch(statisticGameReducer(statistic));
+export const speedGameDispatcher = (speed: number) => dispatch(speedGameReducer(speed));

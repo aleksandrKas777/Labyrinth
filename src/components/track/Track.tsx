@@ -17,7 +17,7 @@ import {
 
 
 export const Track = () => {
-    const {cells, startPosition, moveArr, arrow, result} = useSelector((state: RootState) => state);
+    const {cells, startPosition, moveArr, arrow, result, speedGame} = useSelector((state: RootState) => state);
     const countStep = 11;
 
     // создаем массив ходов
@@ -80,11 +80,11 @@ export const Track = () => {
             arrowDispatcher(moveArr[counter]);
             counter++
 
-        }, 1500);
+        }, speedGame);
 
         return () => clearInterval(timer);
 
-    }, [moveArr, result, startPosition])
+    }, [moveArr, result, startPosition, speedGame])
 
 
     let arrowImg: JSX.Element;
