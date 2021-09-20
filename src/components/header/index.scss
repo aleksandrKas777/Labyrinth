@@ -1,4 +1,4 @@
-.title{
+.title {
   display: flex;
   justify-content: center;
   font-weight: 500;
@@ -6,16 +6,20 @@
   height: 60px;
 
 }
-nav{
+
+nav {
   background-color: #069cc6;
   color: aliceblue;
-  :first-child{
+
+  :first-child {
     display: flex;
   }
-  .li_margin{
+
+  .li_margin {
     margin-right: 20px;
   }
-  .nav_ul{
+
+  .nav_ul {
     display: flex;
     justify-content: space-between;
     font-style: normal;
@@ -24,12 +28,41 @@ nav{
     padding: 5px 10px;
     cursor: default;
   }
-  li{
+
+  li {
     padding: 5px 10px;
     border: 1px solid #61dafb;
     border-radius: 10px;
-    &:hover{
+
+    &:hover {
       background-color: #07b0df;
     }
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 421px) {
+  nav .nav_ul {
+    font-style: normal;
+    font-weight: 350;
+    font-size: 25px;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (max-width: 420px) and (min-width: 360px) {
+  nav .nav_ul {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    padding: 3px 6px;
+  }
+}
+
+@media screen and (max-width: 359px){
+  nav .nav_ul {
+    font-style: normal;
+    font-weight: 260;
+    font-size: 17px;
+    padding: 2px 4px;
   }
 }

@@ -99,7 +99,7 @@ export const Track = () => {
     } else if (arrow === 'homer') {
         arrowImg = <img src={homer} className='arrow homer' alt='вверх'/>
     } else {
-        arrowImg = <div className='arrow'>здесь будет указано напрвление</div>
+        arrowImg = <div className='arrow'>здесь будет указано направление</div>
     }
 
     let resultImg: JSX.Element;

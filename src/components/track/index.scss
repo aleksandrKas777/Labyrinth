@@ -2,18 +2,18 @@
   display: flex;
   justify-content: center;
   .arrow{
-    width: 100px;
     height: 100px;
+    width: auto;
     background-color: #61dafb;
   }
   .homer{
-    width: 170px;
-    height: 100px;
+    width: 150px;
+    height: auto;
     animation: show-result 1s forwards;
   }
   .result{
     width: 150px;
-    height: 150px;
+    height: auto;
     animation: show-result 1s forwards;
   }
 }

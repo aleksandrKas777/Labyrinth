@@ -53,7 +53,7 @@ export const Playground: React.FunctionComponent = () => {
     };
 
     const stylePlayground = {
-        width: 100 * size + 4 * size + 'px'
+        maxWidth: 100 * size + 4 * size + 'px',
     }
 
     return (
