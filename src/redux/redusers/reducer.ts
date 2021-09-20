@@ -12,7 +12,8 @@ interface InitialState {
     userCell: number,
     modalActive: string,
     statisticGame: string[],
-    speedGame: number
+    speedGame: number,
+    btnStart: string,
 }
 
 const initialState: InitialState = {
@@ -27,7 +28,8 @@ const initialState: InitialState = {
     userCell: 0,
     modalActive: '',
     statisticGame: [],
-    speedGame: 1500
+    speedGame: 1500,
+    btnStart: 'start'
 };
 
 const sliceConfig = {
@@ -69,6 +71,9 @@ const sliceConfig = {
         },
         speedGameReducer: (state: any, action: PayloadAction<number>) => {
             state.speedGame = action.payload;
+        },
+        btnStartReducer: (state: any, action: PayloadAction<string>) => {
+            state.btnStart = action.payload;
         }
     }
 };

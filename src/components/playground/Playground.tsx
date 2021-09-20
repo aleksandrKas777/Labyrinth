@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './index.scss';
 import {useSelector} from 'react-redux';
 import {
@@ -6,15 +6,14 @@ import {
     sizeDispatcher,
     startPositionDispatcher,
     positionMatrixDispatcher,
-    btnDisableDispatcher, arrowDispatcher, resultDispatcher, userCellDispatcher
+    btnDisableDispatcher, arrowDispatcher, resultDispatcher, userCellDispatcher, btnStartDispatcher
 } from '../../redux/dispatchers/dispatcher';
 import {RootState} from '../../redux/store';
-import {Cell} from './cell/Cell';
+import {RowCells} from './rowCells/RowCells';
 
 
 export const Playground: React.FunctionComponent = () => {
-    const {size} = useSelector((state: RootState) => state);
-    const [btnText, setBtnText] = useState('начать игру');
+    const {size, btnStart} = useSelector((state: RootState) => state);
 
 
     useEffect(() => {
@@ -24,12 +23,15 @@ export const Playground: React.FunctionComponent = () => {
 
 
     let cells: number[] = [];
+    let arrCells: number[] = [];
     for (let i = 1; i < size + 1; i++) {
-        for (let j = 0; j < size; j++) {
-            const startPositionMatrix = i * 10 + j
-            cells.push(startPositionMatrix);
+        const startPositionMatrix = i * 10
+        cells.push(startPositionMatrix);
+        for (let j = 1; j < size + 1; j++) {
+            const positionCell = startPositionMatrix + j
+            arrCells.push(positionCell);
         }
-
+        console.log(arrCells);
     }
 
 
@@ -37,18 +39,19 @@ export const Playground: React.FunctionComponent = () => {
         resultDispatcher('');
         arrowDispatcher('text');
         userCellDispatcher(0);
-        setBtnText('начать заново');
+        btnStartDispatcher('restart');
         btnDisableDispatcher(false);
         const position = Math.floor(Math.random() * (size * size));
+
         let counter = 0;
-        for (let i = 0; i < cells.length; i++) {
+        for (let i = 1; i < arrCells.length + 1; i++) {
             if (counter === position) {
-                startPositionDispatcher(cells[i]);
-                positionMatrixDispatcher(cells[i]);
+                startPositionDispatcher(arrCells[i]);
+                positionMatrixDispatcher(arrCells[i]);
             }
             counter++;
         }
-        cellDispatcher(cells);
+        cellDispatcher(arrCells);
 
     };
 
@@ -58,9 +61,11 @@ export const Playground: React.FunctionComponent = () => {
 
     return (
         <>
-            <div className='btnStart'><button onClick={startGame}>{btnText}</button></div>
+            <div className="btnStart">
+                <button onClick={startGame}>{btnStart === 'start' ? 'начать игру' : 'начать заново'}</button>
+            </div>
             <div className={'playground'} style={stylePlayground}>
-                {cells.map((item, index) => <Cell key={index + 100} item={item}/>)}
+                {cells.map((item) => <RowCells key={item.toString()} itemRow={item}/>)}
             </div>
         </>
     )

@@ -5,14 +5,14 @@ import arrowLeft from '../../images/arrow-left.png';
 import arrowRight from '../../images/arrow-right.png';
 import winner from '../../images/winnerHomer.png';
 import losing from '../../images/losingHomer.png';
-import homer from '../../images/meditateHomer.png'
+import homer from '../../images/meditateHomer.png';
 import './index.scss';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
 import {
     moveArrDispatcher,
     positionMatrixDispatcher,
-    arrowDispatcher
+    arrowDispatcher, btnStartDispatcher
 } from '../../redux/dispatchers/dispatcher';
 
 
@@ -66,7 +66,7 @@ export const Track = () => {
             positionMatrixDispatcher(positionMatrix);
         }
 
-    }, [cells, startPosition])
+    }, [cells, startPosition]);
 
     // проходим по массиву с ходами и устанавливаем направление стрелки
     useEffect(() => {
@@ -78,39 +78,40 @@ export const Track = () => {
 
             }
             arrowDispatcher(moveArr[counter]);
-            counter++
+            counter++;
 
         }, speedGame);
 
         return () => clearInterval(timer);
 
-    }, [moveArr, result, startPosition, speedGame])
+    }, [moveArr, result, startPosition, speedGame]);
 
 
     let arrowImg: JSX.Element;
     if (arrow === 'down') {
-        arrowImg = <img src={arrowDown} className='arrow' alt='вниз'/>
+        arrowImg = <img src={arrowDown} className="arrow" alt="вниз"/>;
     } else if (arrow === 'left') {
-        arrowImg = <img src={arrowLeft} className='arrow' alt='влево'/>
+        arrowImg = <img src={arrowLeft} className="arrow" alt="влево"/>;
     } else if (arrow === 'right') {
-        arrowImg = <img src={arrowRight} className='arrow' alt='вправо'/>
+        arrowImg = <img src={arrowRight} className="arrow" alt="вправо"/>;
     } else if (arrow === 'up') {
-        arrowImg = <img src={arrowUp} className='arrow' alt='вверх'/>
+        arrowImg = <img src={arrowUp} className="arrow" alt="вверх"/>;
     } else if (arrow === 'homer') {
-        arrowImg = <img src={homer} className='arrow homer' alt='вверх'/>
+        arrowImg = <img src={homer} className="arrow homer" alt="homer"/>;
+        btnStartDispatcher('start');
     } else {
-        arrowImg = <div className='arrow'>здесь будет указано направление</div>
+        arrowImg = <div className="arrow">здесь будет указано направление</div>;
     }
 
     let resultImg: JSX.Element;
     resultImg = result === 'winner' ?
-        <img className='result' src={winner} alt='победа'/> :
-        <img className='result' src={losing} alt='победа'/>
+        <img className="result" src={winner} alt="победа"/> :
+        <img className="result" src={losing} alt="победа"/>;
 
 
     return (
-        <div className='track'>
+        <div className="track">
             {result === '' ? arrowImg : resultImg}
         </div>
-    )
-}
+    );
+};

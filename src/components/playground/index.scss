@@ -5,6 +5,9 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  div{
+    display: contents;
+  }
   .cell {
     content: '';
     background-color: gray;
@@ -13,7 +16,7 @@
     border-radius: 5px;
     margin: 2px;
     .cellImg {
-      width: 100%;
+      width: inherit;
       height: auto;
       animation: show-btnImg 1s forwards;
     }
@@ -45,36 +48,6 @@
   }
 }
 
-@media screen and (max-width: 650px) and (min-width: 570px){
-  .playground .cell{
-    width: 90px;
-    height: 90px;
-  }
-}
-@media screen and (max-width: 569px) and (min-width: 510px){
-  .playground .cell{
-    width: 80px;
-    height: 80px;
-  }
-}
-@media screen and (max-width: 509px) and (min-width: 452px){
-  .playground .cell{
-    width: 70px;
-    height: 70px;
-  }
-}
-@media screen and (max-width: 451px) and (min-width: 389px){
-  .playground .cell{
-    width: 60px;
-    height: 60px;
-  }
-}
-@media screen and (max-width: 388px) and (min-width: 360px){
-  .playground .cell{
-    width: 55px;
-    height: 55px;
-  }
-}
 @media screen and (max-width: 359px){
   .playground .cell{
     width: 48px;

@@ -74,7 +74,7 @@ export const Cell = ({item}: CellProps) => {
     }
 
 
-    return (<button id={item + ''} disabled={btnDisable} onClick={resultGame} className="cell"
-                    key={item}>{btnImg}</button>)
+    return (<button id={item + ''} disabled={btnDisable} onClick={resultGame} className="cell">{btnImg}</button>)
 
 }
+

@@ -18,7 +18,7 @@ export const Statistic: React.FunctionComponent = () => {
     return (
         <>
             <h2>Статистика</h2>
-            <ul>{statisticGame.map(item => <li>{item}</li>)}</ul>
+            <ul>{statisticGame.map((item , index)=> <li key={(index + 200).toString()}>{item}</li>)}</ul>
             <div id='deleteStatistic' onClick={modalClose}>{statisticGame.length < 1? null: 'очистить'}</div>
             <button onClick={() => modalActiveDispatcher('')}>закрыть</button>
         </>

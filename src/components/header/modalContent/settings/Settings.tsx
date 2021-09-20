@@ -27,18 +27,19 @@ export const Settings: React.FunctionComponent = () => {
 
             <div className="select">
                 <p className="titleModal">размер поля</p>
-                <select name="selectSize" onChange={(event) => setSize(parseInt(event.target.value))}>
-                    <option value="3">3</option>
+                <select name="selectSize" value={size} onChange={(event) => setSize(parseInt(event.target.value))}>
+                    <option value="3" selected>3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
-                    <option value="6" selected>6</option>
+                    <option value="6">6</option>
                 </select>
             </div>
 
             <div className="select">
                 <p className="titleModal">сложность</p>
-                <select name="selectSpeed" onChange={(event) => setComplexity(parseInt(event.target.value))}>
-                    <option value="2000">легко</option>
+                <select name="selectSpeed" value={complexity}
+                        onChange={(event) => setComplexity(parseInt(event.target.value))}>
+                    <option value="2000" selected>легко</option>
                     <option value="1500">средне</option>
                     <option value="800">тяжело</option>
                 </select>
