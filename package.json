@@ -33,7 +33,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "/labyrinth/build",
+  "homepage": "/Labyrinth/build",
   "browserslist": {
     "production": [
       ">0.2%",
