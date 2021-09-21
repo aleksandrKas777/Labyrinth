@@ -18,7 +18,7 @@ export const RowCells: ({itemRow}: RowCellsProps) => JSX.Element = ({itemRow}: R
     }
 
     return (
-        <div>
+        <div className='rowCells'>
             {arrCellsRow.map((item) => <Cell key={item.toString()} item={item}/>)}
         </div>
     )

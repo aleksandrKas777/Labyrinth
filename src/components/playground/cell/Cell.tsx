@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../../redux/store';
 import {
     btnDisableDispatcher,
-    resultDispatcher, userCellDispatcher, statisticGameDispatcher
+    resultDispatcher, userCellDispatcher, statisticGameDispatcher, btnStartDispatcher,
 } from '../../../redux/dispatchers/dispatcher';
 
 interface CellProps {
@@ -25,8 +25,9 @@ export const Cell = ({item}: CellProps) => {
 
 
     const resultGame = (event: any) => {
-        userCellDispatcher(parseInt(event.target.id))
+        userCellDispatcher(parseInt(event.target.id));
         btnDisableDispatcher(true);
+        btnStartDispatcher('start');
 
         const resultGame = positionMatrix + '' === event.target.id ? 'winner' : 'losing';
 
@@ -72,7 +73,6 @@ export const Cell = ({item}: CellProps) => {
                           alt="победа"/>
         }
     }
-
 
     return (<button id={item + ''} disabled={btnDisable} onClick={resultGame} className="cell">{btnImg}</button>)
 

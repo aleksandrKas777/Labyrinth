@@ -1,6 +1,5 @@
 import React from 'react';
 import {Playground} from './playground/Playground';
-import './index.scss';
 import {Header} from './header/Header';
 import {Track} from './track/Track';
 import {Provider} from 'react-redux';

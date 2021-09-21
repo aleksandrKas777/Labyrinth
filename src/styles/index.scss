@@ -3,6 +3,9 @@ body{
   background-color: #9ce7fc;
   font-family: 'PT Sans Caption', sans-serif;
 }
-.wrapper{
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  background-color: #61dafb;
   height: 100vh;
 }
