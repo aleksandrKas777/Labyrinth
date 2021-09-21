@@ -1,31 +1,30 @@
 {
   "files": {
-    "main.css": "/labyrinth/build/static/css/main.53dba3bf.chunk.css",
-    "main.js": "/labyrinth/build/static/js/main.c96a1ccb.chunk.js",
-    "main.js.map": "/labyrinth/build/static/js/main.c96a1ccb.chunk.js.map",
-    "runtime-main.js": "/labyrinth/build/static/js/runtime-main.41143fea.js",
-    "runtime-main.js.map": "/labyrinth/build/static/js/runtime-main.41143fea.js.map",
-    "static/js/2.11984bbb.chunk.js": "/labyrinth/build/static/js/2.11984bbb.chunk.js",
-    "static/js/2.11984bbb.chunk.js.map": "/labyrinth/build/static/js/2.11984bbb.chunk.js.map",
-    "index.html": "/labyrinth/build/index.html",
-    "static/css/main.53dba3bf.chunk.css.map": "/labyrinth/build/static/css/main.53dba3bf.chunk.css.map",
-    "static/js/2.11984bbb.chunk.js.LICENSE.txt": "/labyrinth/build/static/js/2.11984bbb.chunk.js.LICENSE.txt",
-    "static/media/arrow-down.67258580.png": "/labyrinth/build/static/media/arrow-down.67258580.png",
-    "static/media/arrow-left.69ce296a.png": "/labyrinth/build/static/media/arrow-left.69ce296a.png",
-    "static/media/arrow-right.603c0af1.png": "/labyrinth/build/static/media/arrow-right.603c0af1.png",
-    "static/media/arrow-up.fd2496e9.png": "/labyrinth/build/static/media/arrow-up.fd2496e9.png",
-    "static/media/cellLosing.52911a61.png": "/labyrinth/build/static/media/cellLosing.52911a61.png",
-    "static/media/cellWinner.c2914375.png": "/labyrinth/build/static/media/cellWinner.c2914375.png",
-    "static/media/finish.44c8c669.png": "/labyrinth/build/static/media/finish.44c8c669.png",
-    "static/media/losingHomer.aa899d62.png": "/labyrinth/build/static/media/losingHomer.aa899d62.png",
-    "static/media/meditateHomer.a98ba606.png": "/labyrinth/build/static/media/meditateHomer.a98ba606.png",
-    "static/media/start-button.d59a7d73.png": "/labyrinth/build/static/media/start-button.d59a7d73.png",
-    "static/media/winnerHomer.d114befb.png": "/labyrinth/build/static/media/winnerHomer.d114befb.png"
+    "main.css": "/Labyrinth/build/static/css/main.53dba3bf.chunk.css",
+    "main.js": "/Labyrinth/build/static/js/main.b23436eb.chunk.js",
+    "main.js.map": "/Labyrinth/build/static/js/main.b23436eb.chunk.js.map",
+    "runtime-main.js": "/Labyrinth/build/static/js/runtime-main.1efdef5b.js",
+    "runtime-main.js.map": "/Labyrinth/build/static/js/runtime-main.1efdef5b.js.map",
+    "static/js/2.11984bbb.chunk.js": "/Labyrinth/build/static/js/2.11984bbb.chunk.js",
+    "static/js/2.11984bbb.chunk.js.map": "/Labyrinth/build/static/js/2.11984bbb.chunk.js.map",
+    "index.html": "/Labyrinth/build/index.html",
+    "static/css/main.53dba3bf.chunk.css.map": "/Labyrinth/build/static/css/main.53dba3bf.chunk.css.map",
+    "static/js/2.11984bbb.chunk.js.LICENSE.txt": "/Labyrinth/build/static/js/2.11984bbb.chunk.js.LICENSE.txt",
+    "static/media/arrow-down.ad42a5ef.png": "/Labyrinth/build/static/media/arrow-down.ad42a5ef.png",
+    "static/media/arrow-left.95d2ceb4.png": "/Labyrinth/build/static/media/arrow-left.95d2ceb4.png",
+    "static/media/arrow-right.502a4518.png": "/Labyrinth/build/static/media/arrow-right.502a4518.png",
+    "static/media/arrow-up.d72b103b.png": "/Labyrinth/build/static/media/arrow-up.d72b103b.png",
+    "static/media/cellLosing.f5a6722d.png": "/Labyrinth/build/static/media/cellLosing.f5a6722d.png",
+    "static/media/cellWinner.9621a709.png": "/Labyrinth/build/static/media/cellWinner.9621a709.png",
+    "static/media/finish.a8b00766.png": "/Labyrinth/build/static/media/finish.a8b00766.png",
+    "static/media/losingHomer.fde01916.png": "/Labyrinth/build/static/media/losingHomer.fde01916.png",
+    "static/media/start-button.ba1f531f.png": "/Labyrinth/build/static/media/start-button.ba1f531f.png",
+    "static/media/winnerHomer.eb4f5f6e.png": "/Labyrinth/build/static/media/winnerHomer.eb4f5f6e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.41143fea.js",
+    "static/js/runtime-main.1efdef5b.js",
     "static/js/2.11984bbb.chunk.js",
     "static/css/main.53dba3bf.chunk.css",
-    "static/js/main.c96a1ccb.chunk.js"
+    "static/js/main.b23436eb.chunk.js"
   ]
 }
